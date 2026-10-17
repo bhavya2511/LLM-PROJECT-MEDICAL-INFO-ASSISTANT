@@ -3,6 +3,27 @@
 RAG chatbot over NIH MedlinePlus that explains diseases with citations and labels every
 claim as **Supported / Contradicted / Unsupported** using an NLI model. 100% free: local models, no API keys.
 
+## Screenshots
+
+| Ask a question: cited answer | Per-claim verification and sources |
+|---|---|
+| ![Answer](docs/screenshots/ask-answer.png) | ![Claim check](docs/screenshots/claim-check-sources.png) |
+
+## How it works
+
+```mermaid
+flowchart TD
+    U([User question]) --> S{Safety gate}
+    S -- emergency or personal advice --> X[/Refuse and redirect/]
+    S -- allowed --> R[Hybrid retrieval<br/>dense + BM25 + RRF]
+    R --> L[LLM answer with numbered citations]
+    L --> SP[Split into claims]
+    SP --> N[Retrieve evidence + NLI check]
+    N --> O[/Supported / Contradicted / Unsupported<br/>with evidence and sources/]
+```
+
+Full detail, including the offline indexing pipeline: [docs/flowchart.md](docs/flowchart.md).
+
 ## Stack
 - Corpus: MedlinePlus health topics XML (NIH, public domain)
 - Retrieval: `bge-small-en-v1.5` embeddings + BM25, fused with RRF
