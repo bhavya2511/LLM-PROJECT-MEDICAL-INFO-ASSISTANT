@@ -11,16 +11,7 @@ claim as **Supported / Contradicted / Unsupported** using an NLI model. 100% fre
 
 ## How it works
 
-```mermaid
-flowchart TD
-    U([User question]) --> S{Safety gate}
-    S -- emergency or personal advice --> X[/Refuse and redirect/]
-    S -- allowed --> R[Hybrid retrieval<br/>dense + BM25 + RRF]
-    R --> L[LLM answer with numbered citations]
-    L --> SP[Split into claims]
-    SP --> N[Retrieve evidence + NLI check]
-    N --> O[/Supported / Contradicted / Unsupported<br/>with evidence and sources/]
-```
+![Pipeline flowchart](docs/diagrams/pipeline-online.png)
 
 Full detail, including the offline indexing pipeline: [docs/flowchart.md](docs/flowchart.md).
 
