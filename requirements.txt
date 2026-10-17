@@ -1,0 +1,6 @@
+requests
+numpy
+rank-bm25
+sentence-transformers
+streamlit
+pytest
