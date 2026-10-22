@@ -14,6 +14,8 @@ claim as **Supported / Contradicted / Unsupported** using an NLI model. 100% fre
 ![Pipeline flowchart](docs/diagrams/pipeline-online.png)
 
 Full detail, including the offline indexing pipeline: [docs/flowchart.md](docs/flowchart.md).
+Full project explanation (design choices, limitations, viva Q&A): [docs/PROJECT_EXPLANATION.md](docs/PROJECT_EXPLANATION.md).
+Free hosted deployment guide (Hugging Face Spaces): [deploy/huggingface](deploy/huggingface/README.md).
 
 ## Stack
 - Corpus: MedlinePlus health topics XML (NIH, public domain)
